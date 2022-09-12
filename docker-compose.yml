@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  notebooks:
+    container_name: notebooks
+    ports:
+      - 8888:8888
+    build:
+      context: ./notebooks
+      target: development
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    volumes:
+      - ./notebooks:/app
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
